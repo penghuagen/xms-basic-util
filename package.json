@@ -2,11 +2,33 @@
   "name": "xms-basic-util",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "examples/es6/xms-basic-util.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuildBrowser": "webpack --config build/webpack.config.browser.js",
+    "buildBrowser": "copy .\\dist\\xms-basic-util.js .\\examples\\browser\\",
+    "?postbuildBrowser": "node build/build-scp2-test.js",
+    "build:node": "webpack --config build/webpack.config.node.js && copy .\\dist\\xms-basic-util.js .\\examples\\node\\",
+    "build:amd": "webpack --config build/webpack.config.amd.js && copy .\\dist\\xms-basic-util.js .\\examples\\amd\\",
+    "build:es6": "webpack --config build/webpack.config.es6.js && copy .\\dist\\xms-basic-util.js .\\examples\\es6\\",
+    "build": "webpack --config build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/penghuagen/xms-basic-util"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "penghuagen",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "lodash": "^4.17.20",
+    "scp2": "^0.5.0",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
+  },
+  "dependencies": {
+    "webpack-merge": "^5.7.3"
+  }
 }
