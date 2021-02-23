@@ -1,7 +1,7 @@
 # 日期转换工具使用说明
 ## dateFormat对像
 ### 常量
-在`dateFormat`对象中，有一个`DATE_FORMAT`常量对像，该常量列举了一些常用的日期格式，可以通过`dateFormat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的常用获取指定的日期格式，常量说明
+在`dateFormat`对象中，有一个`DATE_FORMAT`常量对像，该常量列举了一些常用的日期格式，可以通过`dateFormat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的日期格式；
 
 | 名称              | 格式                           | 转换后日期格式                  |
 | ----------------- | ------------------------------ | ------------------------ |
@@ -21,6 +21,7 @@
 | ----------------- | ------------------------------ | 
 | `timestamp`         | 可选、默认为当前时间    |
 | `format`       | 可选、默认为`DATE_FORMAT.SDF_DATE_SECOND`,支持传多种日期格式,可以从常量里选择,也可以自定义  |
+
 示例:
 ```
 dateFormat.timestampFormat() //2021-02-23 15:21:03
@@ -36,6 +37,7 @@ dateFormat.timestampFormat(1614049156378, dateFormat.DATE_FORMAT.SDF_DATE_CN) //
 | 参数              | 描述                           |
 | ----------------- | ------------------------------ | 
 | `timestamp`         | 可选、默认为当前时间    |
+
 示例:
 ```
 dateFormat.timestampToDate() //2021-02-23
@@ -51,6 +53,7 @@ dateFormat.timestampFormat(1614049156378, dateFormat.DATE_FORMAT.SDF_DATE) //202
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
 | `timestamp`       | 可选、默认为当前时间      |
+
 示例:
 ```
 dateFormat.timestampToDateTime() //2021-01-06 10:16:05
@@ -66,6 +69,7 @@ dateFormat.timestampFormat(1614049156378, dateFormat.DATE_FORMAT.SDF_DATE_SECOND
 | ----------------- | ------------------------------ | 
 | `time`         | 可选、默认为当前时间    |
 | `format`       | 可选、默认为`DATE_FORMAT.SDF_DATE_SECOND`,支持传多种日期格式,可以从常量里选择,也可以自定义  |
+
 示例:
 ```
 dateFormat.timeFormat() //2021-02-23 15:21:03
@@ -79,6 +83,7 @@ dateFormat.timeFormat(20210106101605570, dateFormat.DATE_FORMAT.SDF_DATE_CN) //2
 | 参数              | 描述                           |
 | ----------------- | ------------------------------ | 
 | `time`         | 可选、默认为当前时间    |
+
 示例:
 ```
 dateFormat.timeToDate() //2021-02-23
@@ -93,6 +98,7 @@ dateFormat.timeToDate(20210106101605570, dateFormat.DATE_FORMAT.SDF_DATE) //2021
 | 参数              | 描述                           |
 | ----------------- | ------------------------------ | 
 | `time`         | 可选、默认为当前时间    |
+
 示例:
 ```
 dateFormat.timeToDateTime() //2021-01-06 10:16:05
