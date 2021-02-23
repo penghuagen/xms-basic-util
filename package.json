@@ -11,7 +11,9 @@
     "build:node": "webpack --config build/webpack.config.node.js && copy .\\dist\\xms-basic-util.js .\\examples\\node\\",
     "build:amd": "webpack --config build/webpack.config.amd.js && copy .\\dist\\xms-basic-util.js .\\examples\\amd\\",
     "build:es6": "webpack --config build/webpack.config.es6.js && copy .\\dist\\xms-basic-util.js .\\examples\\es6\\",
-    "build": "webpack --config build/webpack.config.js"
+    "prebuild": "webpack --config build/webpack.config.node.js && copy .\\dist\\xms-basic-util.js .\\examples\\node\\",
+    "build": "webpack --config build/webpack.config.es6.js && copy .\\dist\\xms-basic-util.js .\\examples\\es6\\",
+    "postbuild": "webpack --config build/webpack.config.browser.js && copy .\\dist\\xms-basic-util.js .\\examples\\browser\\"
   },
   "repository": {
     "type": "git",
