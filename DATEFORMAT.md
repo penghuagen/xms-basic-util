@@ -33,20 +33,20 @@ const dateformat = xmsBasicUtil.dateformat
 #### 时间戳转换成指定的日期格式
 - timestampFormat(timestamp, format)
 
-通过时间戳转换成指定的格式,需要两个参数:timestamp和format，<br/>
-如果 timestamp没有传，默认为当前时间;<br/> 
-format是要指定返回的日期格式，默认为`DATE_FORMAT.SDF_DATE_SECOND`
+通过时间戳转换成指定的格式,需要两个参数:`timestamp`和`format`，<br/>
+如果`timestamp`没有传，默认为当前时间;<br/> 
+`format`是要指定返回的日期格式，默认为`DATE_FORMAT.SDF_DATE_SECOND`
 ```
 dateformat.timestampFormat() //2021-02-23 15:21:03
 dateformat.timestampFormat(1614049156378) //2021-02-23 10:59:16
 dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE_CN) //2021年02月23日
 ```
-<font color=#FF0000>如果timestamp传入的格式不对，会抛异常，请注意参数格式</font>
+>如果`timestamp`传入的格式不对，会抛异常，请注意参数格式</font>
 
 - timestampToDate(timestamp)
 
-通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:timestamp，<br/>
-如果 timestamp没有传，默认为当前时间;
+通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:`timestamp`，<br/>
+如果`timestamp`没有传，默认为当前时间;
 ```
 dateformat.timestampToDate() //2021-02-23
 dateformat.timestampToDate(1614049156378) //2021-02-23
@@ -56,8 +56,8 @@ dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE) //202
 
 - timestampToDateTime(timestamp)
 
-通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:timestamp，<br/>
-如果 timestamp没有传，默认为当前时间;
+通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:`timestamp`，<br/>
+如果`timestamp`没有传，默认为当前时间;
 ```
 dateformat.timestampToDateTime() //2021-01-06 10:16:05
 dateformat.timestampToDateTime(1614049156378) //2021-01-06 10:16:05
@@ -67,9 +67,9 @@ dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE_SECOND
 #### 时间字符串转换成指定的日期格式
 - timeFormat(time, format)
 
-通过时间字符串转换成指定的格式,需要两个参数:time和format，<br/>
-如果 time没有传，默认为当前时间;<br/> 
-format为要指定返回的日期格式，默认为DATE_FORMAT.SDF_DATE_SECOND
+通过时间字符串转换成指定的格式,需要两个参数:`time`和`format`，<br/>
+如果`time`没有传，默认为当前时间;<br/> 
+`format`为要指定返回的日期格式，默认为`DATE_FORMAT.SDF_DATE_SECOND`
 ```
 dateformat.timeFormat() //2021-02-23 15:21:03
 dateformat.timeFormat(20210106101605570) //2021-01-06 10:16:05
@@ -78,8 +78,8 @@ dateformat.timeFormat(20210106101605570, dateformat.DATE_FORMAT.SDF_DATE_CN) //2
 
 - timeToDate(time)
 
-通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:time，<br/>
-如果 time没有传，默认为当前时间;
+通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:`time`，<br/>
+如果`time`没有传，默认为当前时间;
 ```
 dateformat.timeToDate() //2021-02-23
 dateformat.timeToDate(20210106101605570) //2021-01-16
@@ -89,8 +89,8 @@ dateformat.timeToDate(20210106101605570, dateformat.DATE_FORMAT.SDF_DATE) //2021
 
 - timeToDateTime(time)
 
-通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:time，<br/>
-<font color=#FF0000>如果 time没有传，默认为当前时间;</font>
+通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:`time`，<br/>
+如果`time`没有传，默认为当前时间;
 ```
 dateformat.timeToDateTime() //2021-01-06 10:16:05
 dateformat.timeToDateTime(20210106101605570) //2021-01-06 10:16:05
