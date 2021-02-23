@@ -18,7 +18,7 @@ const dateformat = xmsBasicUtil.dateformat
 
 ## dateformat对像
 ### 常量
-在`dateformat`对象中，有一个`DATE_FORMAT`常量对像，可以通过`dateformat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的常用获取指定的日期格式，常量说明
+在`dateformat`对象中，有一个`DATE_FORMAT`常量对像，该常量列举了一些常用的日期格式，可以通过`dateformat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的常用获取指定的日期格式，常量说明
 
 | 名称              | 格式                           | 转换后日期格式                  |
 | ----------------- | ------------------------------ | ------------------------ |
