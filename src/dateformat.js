@@ -152,9 +152,9 @@ export default {
 }
 
 /**
- * 示例
+ * 测试
  */
-var now = new Date();
+// var now = new Date();
 // console.log(timeFormat(20210106101605570))
 // console.log(timeToDate('20210106101605570'))
 // console.log(timeToDateTime())
