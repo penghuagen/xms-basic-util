@@ -42,20 +42,30 @@ Date.prototype.format = function (fmt){
 }
 
 /**
- * 时间戳格式转换,不传默认为当前时间
- * @param timestamp
- * @param format
- * @returns {string|void}
+ * 时间戳转日期
+ * @param timestamp 1614049156378
+ * @returns {Date}
  */
-function timestampFormat(timestamp, format) {
+function timestampDate(timestamp){
     let date = new Date();
     if (timestamp) {
         //检查传入的timestamp格式是否正常
         if (typeof timestamp !== 'number' || timestamp.toString().length !== 13) {
-            throw `timestamp格式不对,必须为13位的数字，类似1614049156378,当前参数为${timestamp}`
+            throw `timestamp格式不对,必须为13位的数字，类似1614049156378,当前参数为${timestamp}`;
         }
         date = new Date(timestamp);
     }
+    return date;
+}
+
+/**
+ * 时间戳格式转换
+ * @param timestamp 1614049156378
+ * @param format 没传默认成DATE_FORMAT.SDF_DATE_SECOND
+ */
+function timestampFormat(timestamp, format) {
+    format = format || DATE_FORMAT.SDF_DATE_SECOND;
+    let date = timestampDate(timestamp);
     return date.format(format);
 }
 
@@ -77,11 +87,68 @@ function timestampToDateTime(timestamp) {
     return timestampFormat(timestamp, DATE_FORMAT.SDF_DATE_SECOND)
 }
 
+/**
+ * 时间字符串转日期
+ * @param time 20210106101605570
+ * @returns {Date}
+ */
+function timeDate(time){
+    let date = new Date();
+    if (time) {
+        try {
+            time = time.toString();
+            let year = time.substring(0, 4);
+            let month = time.substring(4, 6)
+            let day = time.substring(6, 8)
+            let hour = time.substring(8, 10)
+            let minute = time.substring(10, 12)
+            let second = time.substring(12, 14)
+            date = new Date(year,month-1,day,hour,minute,second);
+        } catch(e){
+            throw `time格式不对,时间格式类似:20210106101605570,当前参数为${time}`
+        }
+    }
+    return date;
+}
+
+/**
+ * @param time 20210106101605570
+ * @param format 没传默认成DATE_FORMAT.SDF_DATE_SECOND
+ * @returns {string|void}
+ */
+function timeFormat(time, format) {
+    format = format || DATE_FORMAT.SDF_DATE_SECOND;
+    let date = timeDate(time);
+    return date.format(format);
+}
+
+/**
+ * 时间字符串转成年月日
+ * @aram time 20210106101605570
+ * return:2021-02-23
+ */
+function timeToDate(time) {
+    return timeFormat(time, DATE_FORMAT.SDF_DATE)
+}
+
+/**
+ * 时间字符串转成年 月日 时 分 秒
+ * @aram time 20210106101605570
+ * return:2021-02-23 10:59:16
+ */
+function timeToDateTime(time) {
+    return timeFormat(time, DATE_FORMAT.SDF_DATE_SECOND)
+}
+
+
 export default {
     DATE_FORMAT,
     timestampFormat,
     timestampToDate,
-    timestampToDateTime
+    timestampToDateTime,
+    timeFormat,
+    timeToDate,
+    timeToDateTime
 }
 
 /**
@@ -94,5 +161,7 @@ export default {
 // var nowStr5 = now.format(DATE_FORMAT.SDF_DATE_MONTH_MINUTE);
 // var nowStr3 = now.format(DATE_FORMAT.SDF_DATE_SECOND);
 // var nowStr4 = now.format(DATE_FORMAT.SDF_HOUR_TIME);
-// console.log(timestampToDate())
+// console.log(timeFormat(20210106101605570))
+// console.log(timeToDate('20210106101605570'))
+// console.log(timeToDateTime())
 // console.log(timestampToDateTime(1614049156378))
