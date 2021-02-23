@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 node_modules/
 /dist/
@@ -13,3 +14,23 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.iml
+=======
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+>>>>>>> fb1fcb3e04653ba3365fd2334947e628db28cffd
