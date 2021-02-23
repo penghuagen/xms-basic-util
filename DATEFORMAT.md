@@ -30,8 +30,9 @@ const dateformat = xmsBasicUtil.dateformat
 | `SDF_DATE_CN`        | `yyyy年MM月dd日`           | 2021年02月23日   |
 ### 方法
 主要分两大类，1、通过时间戳转对应的格式，2、通过日期字符串转对应的格式。
-- 时间戳转换成指定的日期格式
-##### timestampFormat(timestamp, format)
+#### 时间戳转换成指定的日期格式
+- timestampFormat(timestamp, format)
+
 通过时间戳转换成指定的格式,需要两个参数:timestamp和format，<br/>
 如果 timestamp没有传，默认为当前时间;<br/> 
 format是要指定返回的日期格式，默认为`DATE_FORMAT.SDF_DATE_SECOND`
@@ -43,7 +44,8 @@ dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE_CN) //
 >如果timestamp传入的格式不对，会抛异常，请注意参数格式
 
 
-##### timestampToDate(timestamp)
+- timestampToDate(timestamp)
+
 通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:timestamp，<br/>
 如果 timestamp没有传，默认为当前时间;
 ```
@@ -53,7 +55,8 @@ dateformat.timestampToDate(1614049156378) //2021-02-23
 dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE) //2021-02-23
 ```
 
-##### timestampToDateTime(timestamp)
+- timestampToDateTime(timestamp)
+
 通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:timestamp，<br/>
 如果 timestamp没有传，默认为当前时间;
 ```
@@ -63,8 +66,9 @@ dateformat.timestampToDateTime(1614049156378) //2021-01-06 10:16:05
 dateformat.timestampFormat(1614049156378, dateformat.DATE_FORMAT.SDF_DATE_SECOND) //2021-01-06 10:16:05
 ```
 
-- 时间字符串转换成指定的日期格式
-##### timeFormat(time, format)
+#### 时间字符串转换成指定的日期格式
+- timeFormat(time, format)
+
 通过时间字符串转换成指定的格式,需要两个参数:time和format，<br/>
 如果 time没有传，默认为当前时间;<br/> 
 format为要指定返回的日期格式，默认为DATE_FORMAT.SDF_DATE_SECOND
@@ -74,7 +78,8 @@ dateformat.timeFormat(20210106101605570) //2021-01-06 10:16:05
 dateformat.timeFormat(20210106101605570, dateformat.DATE_FORMAT.SDF_DATE_CN) //2021年01月06日
 ```
 
-##### timeToDate(time)
+- timeToDate(time)
+
 通过时间戳转换成年月日格式,该方法把返回的日期格式是固定的，只需要一个参数:time，<br/>
 如果 time没有传，默认为当前时间;
 ```
@@ -84,7 +89,8 @@ dateformat.timeToDate(20210106101605570) //2021-01-16
 dateformat.timeToDate(20210106101605570, dateformat.DATE_FORMAT.SDF_DATE) //2021-01-16
 ```
 
-##### timeToDateTime(time)
+- timeToDateTime(time)
+
 通过时间戳转换成年月日时分秒格式,该方法把返回的日期格式是固定的，只需要一个参数:time，<br/>
 如果 time没有传，默认为当前时间;
 ```
