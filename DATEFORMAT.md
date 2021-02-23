@@ -12,13 +12,13 @@ import xmsBasicUtil from 'xms-basic-util'
 //获取日期转换工具
 const dateformat = xmsBasicUtil.dateformat
 ```
->注意:因为导入后把库赋值给xmsBasicUtil变量,以下使用xms-basic-util都通过变量`xmsBasicUtil`
->因为xms-basic-util库里有多个工具类，通过`xmsBasicUtil.dateformat`使用日期转换工具类，我刚才把该对像赋值给了dateformat，所有跟日期相关的常量及方法都在这个对象里;
->下面是对该对象做详细的说明
+>注意:因为导入后把库赋值给`xmsBasicUtil`变量,以下使用`xms-basic-util`都通过变量`xmsBasicUtil`
+>因为xms-basic-util库里有多个工具类，通过`xmsBasicUtil.dateformat`使用日期转换工具类，我刚才把该对像赋值给了`dateformat`，所有跟日期相关的常量及方法都在这个对象里;
+>下面是该对象的详细说明
 
 ## dateformat对像
 ### 常量
-在dateformat中，有一个DATE_FORMAT常量对像，可以通过`dateformat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的常用获取指定的日期格式，以下是常量说明
+在`dateformat`对象中，有一个`DATE_FORMAT`常量对像，可以通过`dateformat.DATE_FORMAT`来获取，在调用方法时，可以传入对应的常用获取指定的日期格式，常量说明
 
 | 名称              | 格式                           | 转换后日期格式                  |
 | ----------------- | ------------------------------ | ------------------------ |
@@ -29,12 +29,12 @@ const dateformat = xmsBasicUtil.dateformat
 | `SDF_HOUR_TIME`        | `HH:mm:ss`                 | 14:02:15            |
 | `SDF_DATE_CN`        | `yyyy年MM月dd日`           | 2021年02月23日   |
 ### 方法
-方法主要分两大类，一类是通过时间戳转对应的格式，一类通过日期字符串转对应的格式，如果后期有其他常用的转换，也可以增加。
+主要分两大类，1、通过时间戳转对应的格式，2、通过日期字符串转对应的格式。
 - 时间戳转换成指定的日期格式
 ##### timestampFormat(timestamp, format)
 通过时间戳转换成指定的格式,需要两个参数:timestamp和format，<br/>
 如果 timestamp没有传，默认为当前时间;<br/> 
-format为要指定返回的日期格式，默认为DATE_FORMAT.SDF_DATE_SECOND
+format是要指定返回的日期格式，默认为`DATE_FORMAT.SDF_DATE_SECOND`
 ```
 dateformat.timestampFormat() //2021-02-23 15:21:03
 dateformat.timestampFormat(1614049156378) //2021-02-23 10:59:16
