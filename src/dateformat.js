@@ -154,13 +154,7 @@ export default {
 /**
  * 示例
  */
-// var now = new Date();
-// var nowStr = now.format(DATE_FORMAT.SDF_DATE);
-// var nowStr1 = now.format(DATE_FORMAT.SDF_DATE_CN);
-// var nowStr2 = now.format(DATE_FORMAT.SDF_DATE_MINUTE);
-// var nowStr5 = now.format(DATE_FORMAT.SDF_DATE_MONTH_MINUTE);
-// var nowStr3 = now.format(DATE_FORMAT.SDF_DATE_SECOND);
-// var nowStr4 = now.format(DATE_FORMAT.SDF_HOUR_TIME);
+var now = new Date();
 // console.log(timeFormat(20210106101605570))
 // console.log(timeToDate('20210106101605570'))
 // console.log(timeToDateTime())
