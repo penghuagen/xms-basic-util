@@ -50,6 +50,10 @@ Date.prototype.format = function (fmt){
 function timestampFormat(timestamp, format) {
     let date = new Date();
     if (timestamp) {
+        //检查传入的timestamp格式是否正常
+        if (typeof timestamp !== 'number' || timestamp.toString().length !== 13) {
+            throw `timestamp格式不对,必须为13位的数字，类似1614049156378,当前参数为${timestamp}`
+        }
         date = new Date(timestamp);
     }
     return date.format(format);
@@ -80,13 +84,15 @@ export default {
     timestampToDateTime
 }
 
-
-var now = new Date();
-var nowStr = now.format(DATE_FORMAT.SDF_DATE);
-var nowStr1 = now.format(DATE_FORMAT.SDF_DATE_CN);
-var nowStr2 = now.format(DATE_FORMAT.SDF_DATE_MINUTE);
-var nowStr5 = now.format(DATE_FORMAT.SDF_DATE_MONTH_MINUTE);
-var nowStr3 = now.format(DATE_FORMAT.SDF_DATE_SECOND);
-var nowStr4 = now.format(DATE_FORMAT.SDF_HOUR_TIME);
-console.log(timestampToDate())
-console.log(timestampToDateTime(1614049156378))
+/**
+ * 示例
+ */
+// var now = new Date();
+// var nowStr = now.format(DATE_FORMAT.SDF_DATE);
+// var nowStr1 = now.format(DATE_FORMAT.SDF_DATE_CN);
+// var nowStr2 = now.format(DATE_FORMAT.SDF_DATE_MINUTE);
+// var nowStr5 = now.format(DATE_FORMAT.SDF_DATE_MONTH_MINUTE);
+// var nowStr3 = now.format(DATE_FORMAT.SDF_DATE_SECOND);
+// var nowStr4 = now.format(DATE_FORMAT.SDF_HOUR_TIME);
+// console.log(timestampToDate())
+// console.log(timestampToDateTime(1614049156378))
