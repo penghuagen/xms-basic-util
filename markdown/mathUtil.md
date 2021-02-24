@@ -1,7 +1,10 @@
 # 数字工具使用说明
 
 ## mathUtil对像
-mathUtil用户提供了针对数字的运算方法,解决数字精度丢失的一些典型问题。
+mathUtil用户提供了针对数字的运算方法,解决数字精度丢失(浮点数精度问题)的一些典型问题;
+
+下面示例中有列举一些精度丢失使用简单运算符与调用mathUtil方法的对比，基本上能解决因浮点数精度丢失的问题;
+
 ### 方法
 - accMul(乘法)
 
@@ -13,8 +16,12 @@ mathUtil用户提供了针对数字的运算方法,解决数字精度丢失的�
 
 示例
 ```$xslt
-console.log(`经典乘法:${19.9 * 100}`) //原始乘法:1989.9999999999998
-console.log(`改造后乘法:${accMul(19.9, 100, 2)}`) //改造后乘法:1990
+19.9 * 100  // 1989.9999999999998
+mathUtil.accMul(19.9, 100) // 1990
+mathUtil.accMul(19.9, 100, 2) // 1990
+
+0.11*1.1 // 0.12100000000000001
+mathUtil.accMul(0.11, 1.1)// 0.121
 ```
 
 - accDiv(除法)
@@ -27,7 +34,8 @@ console.log(`改造后乘法:${accMul(19.9, 100, 2)}`) //改造后乘法:1990
 
 示例
 ```$xslt
-console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`) 
+0.121/0.11 // 1.0999999999999999
+mathUtil.accDiv(0.121, 0.11) // 1.1
 ```
 - accAdd(加法)
 
@@ -38,7 +46,8 @@ console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`)
 
 示例
 ```$xslt
-console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`) 
+0.1 + 0.2  // 0.30000000000000004
+mathUtil.accAdd(0.1, 0.2) // 0.3
 ```
 - accSub(减法)
 
@@ -49,7 +58,8 @@ console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`)
 
 示例
 ```$xslt
-console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`) 
+0.3 - 0.1 // 0.19999999999999998
+mathUtil.accSub(0.3, 0.1) // 0.2
 ```
 - toFixed(四舍五入指定小数位)
 
@@ -60,5 +70,19 @@ console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`)
 
 示例
 ```$xslt
-console.log(`改造后乘法:${accDiv(32.34, 3, 2)}`) 
+1.335.toFixed(2) // 1.33
+mathUtil.toFixed(1.335, 2) //1.34
 ```
+
+[测试用例地址](../test/mathUtil.js)
+
+npm install 依赖包安装完后，进入到项目路径中，执行以下命令可以运行测试脚本
+```$xslt
+babel-node test/mathUtil.js
+```
+>为什么要使用babel-node?而不是使用nodejs直接运行，
+>nodejs采用的是CommonJS的模块化规范，使用require引入模块；
+>而import是ES6的模块化规范关键字。想要使用import，必须引入babel转义支持，
+>通过babel进行编译，使其变成node的模块化代码。
+ 
+[精度问题说明]()

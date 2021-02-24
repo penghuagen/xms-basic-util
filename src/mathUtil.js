@@ -117,11 +117,11 @@ export default {
 	toFixed //四舍五入指定小数位
 }
 
-console.log(`原始乘法:${19.9 * 100}`)
-console.log(`改造后乘法:${accMul(19.9, 100, 2)}`)
-console.log(accDiv(32.34, 3, 2))
-console.log(`原始加法:${0.1 + 0.2}`)
-console.log(`改造后加法:${accAdd(0.1, 0.2)}`)
-console.log(accSub(32.34676768, 3))
-console.log(`原始四舍五入指定小数位:${1.335.toFixed(2)}`)
-console.log(`改造后:${toFixed(1.335, 2)}`)
+// console.log(`原始乘法:${19.9 * 100}`)
+// console.log(`改造后乘法:${accMul(19.9, 100, 2)}`)
+// console.log(accDiv(32.34, 3, 2))
+// console.log(`原始加法:${0.1 + 0.2}`)
+// console.log(`改造后加法:${accAdd(0.1, 0.2)}`)
+// console.log(accSub(32.34676768, 3))
+// console.log(`原始四舍五入指定小数位:${1.335.toFixed(2)}`)
+// console.log(`改造后:${toFixed(1.335, 2)}`)
