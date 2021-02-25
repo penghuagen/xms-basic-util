@@ -10,8 +10,8 @@
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
-| `arg1`       | 必传    数字|
-| `arg2`       | 必传    数字 |
+| `arg1`       | 必需    数字|
+| `arg2`       | 必需    数字 |
 | `decimals`       | 可选、保留小数位数，正整数，如果没有传，保留原始位数      |
 
 示例
@@ -28,8 +28,8 @@ mathUtil.accMul(0.11, 1.1)// 0.121
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
-| `arg1`       | 必传    数字|
-| `arg2`       | 必传    数字 |
+| `arg1`       | 必需    数字|
+| `arg2`       | 必需    数字 |
 | `decimals`       | 可选、保留小数位数，正整数，如果没有传，保留原始位数      |
 
 示例
@@ -41,8 +41,8 @@ mathUtil.accDiv(0.121, 0.11) // 1.1
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
-| `arg1`       | 必传    数字|
-| `arg2`       | 必传    数字|
+| `arg1`       | 必需    数字|
+| `arg2`       | 必需    数字|
 
 示例
 ```$xslt
@@ -53,8 +53,8 @@ mathUtil.accAdd(0.1, 0.2) // 0.3
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
-| `arg1`       | 必传    数字|
-| `arg2`       | 必传    数字 |
+| `arg1`       | 必需    数字|
+| `arg2`       | 必需    数字 |
 
 示例
 ```$xslt
@@ -65,13 +65,35 @@ mathUtil.accSub(0.3, 0.1) // 0.2
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
-| `num`       | 必传    数字|
-| `length`     | 必传    保留小数位数，正整数 |
+| `num`       | 必需    数字|
+| `length`     | 必需    保留小数位数，正整数 |
 
 示例
 ```$xslt
 1.335.toFixed(2) // 1.33
 mathUtil.toFixed(1.335, 2) //1.34
+```
+
+- binaryFloatToDecimal(二进制带小数转换成十进制)
+
+该方法主要是解决`二进制`带小数转`十进制`的问题，`八进制`或`十六进制`也支持。
+十进制转换成二进制，可以使用toString()来实现。[进制转换详情](binaryToDecimal.md)
+只有整数的二进制转十进制，可以使用parseInt()来实现
+
+| 参数              | 描述                      |
+| ----------------- | -------------------------| 
+| `binaryNum`       | 必需    默认是二进制|
+| `radix`     | 可选   binaryNum对应的进制数，默认为2,如果binaryNum是8进制,则需要传8,其他进制类似 |
+
+示例
+```$xslt
+mathUtil.binaryFloatToDecimal(1010) // 10
+mathUtil.binaryFloatToDecimal(1010.1) // 10.5
+mathUtil.binaryFloatToDecimal(1010,2) // 10
+mathUtil.binaryFloatToDecimal(1010.1,2) // 10.5
+mathUtil.binaryFloatToDecimal(1010, 8) // 520
+mathUtil.binaryFloatToDecimal(1010.1, 8) // 520.125
+mathUtil.binaryFloatToDecimal(1010.1001) // 10.5625
 ```
 
 **[测试用例地址](../test/mathUtil.js)**
@@ -86,3 +108,5 @@ babel-node test/mathUtil.js
 >通过`babel`进行编译，使其变成node的模块化代码。
  
 **[精度丢失问题](precision.md)**
+
+**[二进制与十进制的转换问题](binaryToDecimal.md)**

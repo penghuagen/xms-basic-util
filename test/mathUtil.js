@@ -26,3 +26,14 @@ console.log(mathUtil.accSub(0.3, 0.1))
 console.log('----------toFixed-----------')
 console.log(1.335.toFixed(2))
 console.log(mathUtil.toFixed(1.335, 2))
+
+
+console.log('----------进制转换-----------')
+console.log(mathUtil.binaryFloatToDecimal(1010))
+console.log(mathUtil.binaryFloatToDecimal(1010.1))
+console.log(mathUtil.binaryFloatToDecimal(1010, 2))
+console.log(mathUtil.binaryFloatToDecimal(1010.1, 2))
+console.log(mathUtil.binaryFloatToDecimal(1010, 8))
+console.log(mathUtil.binaryFloatToDecimal(1010.1, 8))
+console.log(mathUtil.binaryFloatToDecimal(1010.1001))
+

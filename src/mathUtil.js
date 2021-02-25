@@ -109,19 +109,46 @@ function toFixed(num, length){
 	return des
 }
 
+/**
+ * 将二进制小数部分转换为十进制数
+ * @param binaryFloatPartArr 二进制小数部分中由小数各位组成的数组
+ * @param radix binaryNum对应的进制数，默认为2,如果binaryNum是8进制,则需要传8,其他进制类似
+ */
+function eachBinaryFloatPartToDecimal(binaryFloatPartArr, radix) {
+	return binaryFloatPartArr.map((currentValue, index) => {
+		return Number(currentValue) * Math.pow(radix, (-(index + 1)))
+	})
+}
+
+/**
+ * 将二进制小数（包含整数部分和小数部分）转换为十进制数
+ * @param binaryNum 进制数（可能是整数，也可能是小数，默认是二进制）
+ * @param radix binaryNum对应的进制数，默认为2,如果binaryNum是8进制,则需要传8,其他进制类似
+ */
+function binaryFloatToDecimal(binaryNum, radix) {
+	radix = radix || 2
+	// 如果该二进制只有整数部分则直接用 parseInt(string, radix) 处理
+	if (Number.isInteger(binaryNum)) {
+		return parseInt(binaryNum, radix)
+	}
+
+	const binaryFloatNumArr = binaryNum.toString().split(".")
+	// 将二进制整数转换为十进制数
+	const binaryIntParStr = binaryFloatNumArr[0]
+	const decimalIntPartNum = parseInt(binaryIntParStr, radix)
+
+	// 将二进制小数部分转换为十进制数
+	const binaryFloatPartArr = binaryFloatNumArr[1].split("")
+	const eachDecimalFloatPartNum = eachBinaryFloatPartToDecimal(binaryFloatPartArr, radix)
+	const deciamlFloatPartNum = eachDecimalFloatPartNum.reduce((accumulator, currentValue) => { return accumulator + currentValue }, 0)
+	return decimalIntPartNum + deciamlFloatPartNum
+}
+
 export default {
 	accMul, //乘法
 	accDiv, //除法
 	accAdd, //加法
 	accSub, //减法
-	toFixed //四舍五入指定小数位
+	toFixed, //四舍五入指定小数位
+	binaryFloatToDecimal //进制转换,主要是二进制转换成十进制
 }
-
-// console.log(`原始乘法:${19.9 * 100}`)
-// console.log(`改造后乘法:${accMul(19.9, 100, 2)}`)
-// console.log(accDiv(32.34, 3, 2))
-// console.log(`原始加法:${0.1 + 0.2}`)
-// console.log(`改造后加法:${accAdd(0.1, 0.2)}`)
-// console.log(accSub(32.34676768, 3))
-// console.log(`原始四舍五入指定小数位:${1.335.toFixed(2)}`)
-// console.log(`改造后:${toFixed(1.335, 2)}`)
