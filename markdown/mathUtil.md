@@ -1,9 +1,9 @@
 # 数字工具使用说明
 
 ## mathUtil
-mathUtil提供了数字的运算方法,解决数字精度丢失(浮点数精度问题)的一些典型问题;
+`mathUtil`提供了数字的运算方法,解决数字精度丢失(浮点数精度问题)的一些典型问题;
 
-下面示例中有列举一些使用简单运算符精度丢失与调用mathUtil方法的对比，基本上能解决因浮点数精度丢失的问题;
+下面示例中有列举一些使用简单运算符精度丢失与调用`mathUtil`方法不丢失的对比，基本上能解决因浮点数精度丢失的问题;
 
 ### 方法
 - accMul(乘法)
@@ -74,15 +74,15 @@ mathUtil.accSub(0.3, 0.1) // 0.2
 mathUtil.toFixed(1.335, 2) //1.34
 ```
 
-[测试用例地址](../test/mathUtil.js)
+**[测试用例地址](../test/mathUtil.js)**
 
 npm install 依赖包安装完后，进入到项目路径中，执行以下命令可以运行测试脚本
 ```$xslt
 babel-node test/mathUtil.js
 ```
->为什么要使用babel-node?而不是使用nodejs直接运行，
->nodejs采用的是CommonJS的模块化规范，使用require引入模块；
->而import是ES6的模块化规范关键字。想要使用import，必须引入babel转义支持，
->通过babel进行编译，使其变成node的模块化代码。
+>为什么要使用`babel-node`?而不是使用`nodejs`直接运行，
+>`nodejs`采用的是`CommonJS`的模块化规范，使用`require`引入模块；
+>而`import`是ES6的模块化规范关键字。想要使用`import`，必须引入`babel`转义支持，
+>通过`babel`进行编译，使其变成node的模块化代码。
  
-[精度问题说明]()
+**[精度丢失问题](precision.md)**
