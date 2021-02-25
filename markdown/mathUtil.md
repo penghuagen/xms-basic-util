@@ -77,7 +77,9 @@ mathUtil.toFixed(1.335, 2) //1.34
 - binaryFloatToDecimal(二进制带小数转换成十进制)
 
 该方法主要是解决`二进制`带小数转`十进制`的问题，`八进制`或`十六进制`也支持。
+
 十进制转换成二进制，可以使用toString()来实现。[进制转换详情](binaryToDecimal.md)
+
 只有整数的二进制转十进制，可以使用parseInt()来实现
 
 | 参数              | 描述                      |
@@ -107,6 +109,6 @@ babel-node test/mathUtil.js
 >而`import`是ES6的模块化规范关键字。想要使用`import`，必须引入`babel`转义支持，
 >通过`babel`进行编译，使其变成node的模块化代码。
  
-**[精度丢失问题](precision.md)**
+**[JS数字丢失精度的原因](precision.md)**
 
-**[二进制与十进制的转换问题](binaryToDecimal.md)**
+**[JS实现十进制与二进制的互相转换](binaryToDecimal.md)**

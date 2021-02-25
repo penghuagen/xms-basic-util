@@ -27,7 +27,6 @@ console.log(number.toString(8)) // 2471
 console.log(number.toString(16)) // 539
 
 var dot = 1.1
-console.log(number.toString()) // 1337
 console.log(dot.toString(2)) // 1.000110011001100110011001100110011001100110011001101
 console.log(dot.toString(8)) // 1.06314631463146315
 console.log(dot.toString(16)) // 1.199999999999a
@@ -87,6 +86,7 @@ console.log(parseInt(num,2)); // 100
 每位数字转换过程 | 1*2^(-1)| 1*2^(-2)| 1*2^(-3)
 十进制表示 | 0.5| 0.25| 0.125
 
+- 将二进制数的整数部分和小数部分拆分
 
 ```
 const binaryFloatNum = 1111011.111
@@ -137,4 +137,6 @@ console.log(binaryFloatToDecimal(1111011))  // 123
 console.log(binaryFloatToDecimal(0.111))  // 0.875
 ```
 
->基本进制转换成十进制的实现思路也类似
+>其他进制转换成十进制的实现思路也类似
+
+**[数字工具使用说明](mathUtil.md)**
