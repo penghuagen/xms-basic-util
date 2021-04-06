@@ -222,7 +222,7 @@ export default {
 /**
  * 测试
  */
-// var now = new Date();
+var now = new Date();
 // console.log(timeFormat(20210106101605570))
 // console.log(timeAddMonth(20210106101605570, -2))
 // console.log(timeAddDay(20210106101605570,-3))
@@ -234,3 +234,8 @@ export default {
 // console.log(timestampAddMonth(1614049156378, 11, DATE_FORMAT.SDF_DATE_SECOND))
 // console.log(timestampAddMonth())
 // console.log(timestampAddDay(1614049156378, -6, DATE_FORMAT.SDF_DATE_SECOND))
+// console.log(timeAddDay()) //2021-01-06 10:16:05
+// console.log(timeAddDay(20210106101605570)) //2021-01-06 10:16:05
+// console.log(timeAddDay(20210106101605570, 3)) //2021-01-06 10:16:05
+// console.log(timeAddDay(20210106101605570, -3)) //2021-01-06 10:16:05
+// console.log(timeAddDay(20210106101605570, -3, DATE_FORMAT.SDF_DATE_SECOND))

@@ -61,6 +61,42 @@ dateFormat.timestampToDateTime(1614049156378) //2021-01-06 10:16:05
 //相当于
 dateFormat.timestampFormat(1614049156378, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //2021-01-06 10:16:05
 ```
+- timestampAddMonth(timestamp, month, format)
+
+通过时间戳转换成指定格式,支持月份加减;
+
+| 参数              | 描述                      |
+| ----------------- | -------------------------| 
+| `timestamp`       | 可选、默认为当前时间      |
+| `month`       | 可选、正数增加，负数减少      |
+| `format`       | 可选、默认返回SDF_DATE格式     |
+
+示例:
+```
+dateFormat.timestampAddMonth() //timestamp没有传默认当天，也没有做月份增减处理 2021-04-06
+dateFormat.timestampAddMonth(1614049156378) //指定时间戳 2021-02-23
+dateFormat.timestampAddMonth(1614049156378, 3) //指定时间戳并且month为正数 2021-05-23
+dateFormat.timestampAddMonth(1614049156378, -3) //指定时间戳并且month为负数 2020-11-23
+dateFormat.timestampAddMonth(1614049156378, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2020-11-23 10:59:16
+```
+- timestampAddDay(timestamp, day, format)
+
+通过时间戳转换成指定格式,支持天数加减;
+
+| 参数              | 描述                      |
+| ----------------- | -------------------------| 
+| `timestamp`       | 可选、默认为当前时间      |
+| `day`       | 可选、正数增加，负数减少      |
+| `format`       | 可选、默认返回SDF_DATE格式     |
+
+示例:
+```
+dateFormat.timestampAddDay() //timestamp没有传默认当天，也没有做天数增减处理 2021-04-06
+dateFormat.timestampAddDay(1614049156378) //指定时间戳 2021-02-23
+dateFormat.timestampAddDay(1614049156378, 3) //指定时间戳并且day为正数 2021-02-26
+dateFormat.timestampAddDay(1614049156378, -3) //指定时间戳并且day为负数 2021-02-20
+dateFormat.timestampAddDay(1614049156378, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2020-11-23 10:59:16
+```
 #### 时间字符串转换成指定的日期格式
 - timeFormat(time, format)
 通过时间字符串转换成指定的格式
@@ -105,4 +141,40 @@ dateFormat.timeToDateTime() //2021-01-06 10:16:05
 dateFormat.timeToDateTime(20210106101605570) //2021-01-06 10:16:05
 //相当于
 dateFormat.timeToDateTime(20210106101605570, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //2021-01-06 10:16:05
+```
+- timeAddMonth(time, month, format)
+
+通过时间字符串转换成指定格式,支持月份加减;
+
+| 参数              | 描述                      |
+| ----------------- | -------------------------| 
+| `time`       | 可选、默认为当前时间      |
+| `month`       | 可选、正数增加，负数减少      |
+| `format`       | 可选、默认返回SDF_DATE格式     |
+
+示例:
+```
+dateFormat.timeAddMonth() //time没有传默认当天，也没有做月份增减处理 2021-04-06
+dateFormat.timeAddMonth(20210106101605570) //指定时间字符串 2021-01-06
+dateFormat.timeAddMonth(20210106101605570, 3) //指定时间字符串并且month为正数 2021-04-06
+dateFormat.timeAddMonth(20210106101605570, -3) //指定时间字符串并且month为负数 2020-10-06
+dateFormat.timeAddMonth(20210106101605570, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2020-10-06 10:16:05
+```
+- timeAddDay(time, day, format)
+
+通过时间戳转换成指定格式,支持天数加减;
+
+| 参数              | 描述                      |
+| ----------------- | -------------------------| 
+| `time`       | 可选、默认为当前时间      |
+| `day`       | 可选、正数增加，负数减少      |
+| `format`       | 可选、默认返回SDF_DATE格式     |
+
+示例:
+```
+dateFormat.timeAddDay() //time没有传默认当天，也没有做天数增减处理 2021-04-06
+dateFormat.timeAddDay(1614049156378) //指定时间字符串 2021-01-06
+dateFormat.timeAddDay(1614049156378, 3) //指定时间戳并且day为正数 2021-01-09
+dateFormat.timeAddDay(1614049156378, -3) //指定时间戳并且day为负数 2021-01-03
+dateFormat.timeAddDay(1614049156378, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2021-01-03 10:16:05
 ```
