@@ -84,7 +84,40 @@ function timestampToDate(timestamp) {
  * return:2021-02-23 10:59:16
  */
 function timestampToDateTime(timestamp) {
+
     return timestampFormat(timestamp, DATE_FORMAT.SDF_DATE_SECOND)
+}
+
+/**
+ * 时间戳转成指定格式.支持进行月份计算,month:正数:增加月份;负数：减少月份
+ * @param timestamp
+ * @param month
+ * @param format
+ * @returns {string|void}
+ */
+function timestampAddMonth(timestamp, month, format) {
+    format = format || DATE_FORMAT.SDF_DATE
+    let date = timestampDate(timestamp);
+    if (month) {
+        date.setMonth(date.getMonth() + month)
+    }
+    return date.format(format);
+}
+
+/**
+ * 时间戳转成指定格式.支持进行天数计算,day:正数:增加天数;负数：减少天数
+ * @param timestamp
+ * @param month
+ * @param format
+ * @returns {string|void}
+ */
+function timestampAddDay(timestamp, day, format) {
+    format = format || DATE_FORMAT.SDF_DATE
+    let date = timestampDate(timestamp);
+    if (day) {
+        date.setDate(date.getDate() + day);
+    }
+    return date.format(format);
 }
 
 /**
@@ -140,15 +173,50 @@ function timeToDateTime(time) {
     return timeFormat(time, DATE_FORMAT.SDF_DATE_SECOND)
 }
 
+/**
+ * 时间字符串转成指定格式.支持进行月份计算,month:正数:增加月份;负数：减少月份
+ * @param timestamp
+ * @param month
+ * @param format
+ * @returns {string|void}
+ */
+function timeAddMonth(time, month, format) {
+    format = format || DATE_FORMAT.SDF_DATE
+    let date = timeDate(time);
+    if (month) {
+        date.setMonth(date.getMonth() + month)
+    }
+    return date.format(format);
+}
+
+/**
+ * 时间字符串转成指定格式.支持进行天数计算,day:正数:增加天数;负数：减少天数
+ * @param timestamp
+ * @param month
+ * @param format
+ * @returns {string|void}
+ */
+function timeAddDay(time, day, format) {
+    format = format || DATE_FORMAT.SDF_DATE
+    let date = timeDate(time);
+    if (day) {
+        date.setDate(date.getDate() + day)
+    }
+    return date.format(format);
+}
 
 export default {
     DATE_FORMAT,
     timestampFormat,
     timestampToDate,
     timestampToDateTime,
+    timestampAddMonth,
+    timestampAddDay,
     timeFormat,
     timeToDate,
-    timeToDateTime
+    timeToDateTime,
+    timeAddMonth,
+    timeAddDay
 }
 
 /**
@@ -156,6 +224,13 @@ export default {
  */
 // var now = new Date();
 // console.log(timeFormat(20210106101605570))
+// console.log(timeAddMonth(20210106101605570, -2))
+// console.log(timeAddDay(20210106101605570,-3))
 // console.log(timeToDate('20210106101605570'))
+// // console.log(timestampAddMonth('20210106101605570', 3))
 // console.log(timeToDateTime())
 // console.log(timestampToDateTime(1614049156378))
+// console.log(timestampAddMonth(1614049156378, 11))
+// console.log(timestampAddMonth(1614049156378, 11, DATE_FORMAT.SDF_DATE_SECOND))
+// console.log(timestampAddMonth())
+// console.log(timestampAddDay(1614049156378, -6, DATE_FORMAT.SDF_DATE_SECOND))
