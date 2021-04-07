@@ -42,6 +42,19 @@ Date.prototype.format = function (fmt){
 }
 
 /**
+ * 日期转成指定格式，默认为SDF_DATE
+ * @param timestamp 1614049156378
+ * @returns {Date}
+ */
+function dateFormat(date, format) {
+    format = format || DATE_FORMAT.SDF_DATE;
+    if (!date) {
+        date = new Date();
+    }
+    return date.format(format);
+}
+
+/**
  * 时间戳转日期
  * @param timestamp 1614049156378
  * @returns {Date}
@@ -66,7 +79,7 @@ function timestampDate(timestamp){
 function timestampFormat(timestamp, format) {
     format = format || DATE_FORMAT.SDF_DATE_SECOND;
     let date = timestampDate(timestamp);
-    return date.format(format);
+    return dateFormat(date, format);
 }
 
 /**
@@ -84,7 +97,6 @@ function timestampToDate(timestamp) {
  * return:2021-02-23 10:59:16
  */
 function timestampToDateTime(timestamp) {
-
     return timestampFormat(timestamp, DATE_FORMAT.SDF_DATE_SECOND)
 }
 
@@ -96,12 +108,8 @@ function timestampToDateTime(timestamp) {
  * @returns {string|void}
  */
 function timestampAddMonth(timestamp, month, format) {
-    format = format || DATE_FORMAT.SDF_DATE
     let date = timestampDate(timestamp);
-    if (month) {
-        date.setMonth(date.getMonth() + month)
-    }
-    return date.format(format);
+    return dateAddMonth(date, month, format)
 }
 
 /**
@@ -112,12 +120,8 @@ function timestampAddMonth(timestamp, month, format) {
  * @returns {string|void}
  */
 function timestampAddDay(timestamp, day, format) {
-    format = format || DATE_FORMAT.SDF_DATE
     let date = timestampDate(timestamp);
-    if (day) {
-        date.setDate(date.getDate() + day);
-    }
-    return date.format(format);
+    return dateAddDay(date, day, format);
 }
 
 /**
@@ -152,7 +156,7 @@ function timeDate(time){
 function timeFormat(time, format) {
     format = format || DATE_FORMAT.SDF_DATE_SECOND;
     let date = timeDate(time);
-    return date.format(format);
+    return dateFormat(date, format);
 }
 
 /**
@@ -181,12 +185,8 @@ function timeToDateTime(time) {
  * @returns {string|void}
  */
 function timeAddMonth(time, month, format) {
-    format = format || DATE_FORMAT.SDF_DATE
     let date = timeDate(time);
-    if (month) {
-        date.setMonth(date.getMonth() + month)
-    }
-    return date.format(format);
+    return dateAddMonth(date, month, format)
 }
 
 /**
@@ -197,21 +197,50 @@ function timeAddMonth(time, month, format) {
  * @returns {string|void}
  */
 function timeAddDay(time, day, format) {
-    format = format || DATE_FORMAT.SDF_DATE
     let date = timeDate(time);
-    if (day) {
-        date.setDate(date.getDate() + day)
+    return dateAddDay(date, day, format);
+}
+
+/**
+ * 日期格式转换成指定格式.支持进行月份计算,month:正数:增加月份;负数：减少月份
+ * @param timestamp
+ * @param month
+ * @param format
+ * @returns {string|void}
+ */
+function dateAddMonth(date, month, format) {
+    if (month) {
+        date.setMonth(date.getMonth() + month)
     }
-    return date.format(format);
+    return dateFormat(date, format);
+}
+
+/**
+ * 日期格式转换成指定格式.支持进行天数计算,day:正数:增加天数;负数：减少天数
+ * @param timestamp
+ * @param day
+ * @param format
+ * @returns {string|void}
+ */
+function dateAddDay(date, day, format) {
+    if (day) {
+        date.setMonth(date.getMonth() + day)
+    }
+    return dateFormat(date, format);
 }
 
 export default {
     DATE_FORMAT,
+    dateFormat,
+    dateAddMonth,
+    dateAddDay,
+    timestampDate,
     timestampFormat,
     timestampToDate,
     timestampToDateTime,
     timestampAddMonth,
     timestampAddDay,
+    timeDate,
     timeFormat,
     timeToDate,
     timeToDateTime,
@@ -222,7 +251,12 @@ export default {
 /**
  * 测试
  */
-var now = new Date();
+// var now = new Date();
+// console.log(dateFormat())
+// console.log(dateFormat(new Date()))
+// console.log(dateFormat(new Date(), DATE_FORMAT.SDF_DATE_CN))
+// console.log(timeDate())
+// console.log(timeDate(20210106101605570))
 // console.log(timeFormat(20210106101605570))
 // console.log(timeAddMonth(20210106101605570, -2))
 // console.log(timeAddDay(20210106101605570,-3))
