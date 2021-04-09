@@ -224,7 +224,7 @@ function dateAddMonth(date, month, format) {
  */
 function dateAddDay(date, day, format) {
     if (day) {
-        date.setMonth(date.getMonth() + day)
+        date.setDate(date.getDate() + day)
     }
     return dateFormat(date, format);
 }
