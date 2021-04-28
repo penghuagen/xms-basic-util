@@ -3,7 +3,7 @@
  * y(Y):年份,m(M):月份,d(D):日
  */
 const DATE_FORMAT = {
-    SDF_DATE:'yyyy-MM-DD', //只有年月日
+    SDF_DATE:'yyyy-MM-dd', //只有年月日
     SDF_DATE_SECOND:'yyyy-MM-dd HH:mm:ss',
     SDF_DATE_MINUTE:'yyyy-MM-dd HH:mm',
     SDF_DATE_MONTH_MINUTE:'MM-dd HH:mm',
