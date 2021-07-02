@@ -1,6 +1,6 @@
 {
   "name": "xms-basic-util",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "main": "examples/es6/xms-basic-util.js",
   "scripts": {
