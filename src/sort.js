@@ -19,6 +19,63 @@ function bubbleSort(arr) {
     return arr;
 }
 
-export default {
-    bubbleSort
+/**
+ * 排序方法、只支持升序
+ * @param item1
+ * @param item2
+ * @param propArray 排序属性数组
+ * @returns {boolean|*}
+ */
+function ascSort(item1, item2, propArray) {
+    let compareArray = []
+    for (let i = 0; i < propArray.length; i++) {
+        let prop = propArray[i]
+        if (item1[prop] > item2[prop]) {
+            compareArray.push(1);
+            break;
+        } else if (item1[prop] === item2[prop]) {
+            compareArray.push(0);
+        } else {
+            compareArray.push(-1);
+            break;
+        }
+    }
+
+    for (let j = 0; j < compareArray.length; j++) {
+        if (compareArray[j] === 1 || compareArray[j] === -1) {
+            return compareArray[j];
+        }
+    }
+    return false;
 }
+
+/**
+ * sort extensions by "firstName" + "lastName" + "ext" ASC
+ * @param extensions
+ */
+function sortObjectByProp(objectArray){
+    let sortProp = ['firstName', 'lastName', 'ext']
+    objectArray.sort((a, b) => {
+        return ascSort(a, b, sortProp)
+    })
+    return objectArray
+}
+
+export default {
+    bubbleSort,
+    sortObjectByProp
+}
+
+
+const extensions = [
+    {firstName: 'a', lastName: 'pn', ext: 33, extType: 'DigitalUser'},
+    {firstName: 'b', lastName: 'pn', ext: 32, extType: 'DigitalUser'},
+    {firstName: 'a', lastName: 'pn', ext: 50, extType: 'AO'},
+    {firstName: 'a', lastName: 'ab', ext: '123', extType: 'AO'},
+    {firstName: 'b', lastName: 'pn', ext: 40, extType: 'Dept'},
+    {firstName: 'b', lastName: '', ext: '34', extType: 'AO'},
+    {firstName: 'b', lastName: 'nb', ext: '', extType: 'VirtualUser'},
+    {firstName: 'en', lastName: 'ww', ext: 32, extType: 'FaxUser'}
+];
+// 名称排序
+console.log('sortExtensionsByName:%o', sortObjectByProp(extensions))

@@ -33,7 +33,7 @@ Date.prototype.format = function (fmt){
     }
 
     for (let k in o) {
-        if (new RegExp("(" + k + ")", "i").test(fmt)) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
             fmt = fmt.replace(
                 RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         }
@@ -251,10 +251,10 @@ export default {
 /**
  * 测试
  */
-// var now = new Date();
-// console.log(dateFormat())
-// console.log(dateFormat(new Date()))
-// console.log(dateFormat(new Date(), DATE_FORMAT.SDF_DATE_CN))
+var now = new Date();
+console.log(dateFormat())
+console.log(dateFormat(new Date()))
+console.log(dateFormat(new Date(), DATE_FORMAT.SDF_HOUR_TIME))
 // console.log(timeDate())
 // console.log(timeDate(20210106101605570))
 // console.log(timeFormat(20210106101605570))
