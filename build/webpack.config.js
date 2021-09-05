@@ -9,7 +9,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'xms-basic-util.js',
+        filename: 'xms-basic-forEach.js',
         library: 'xmsBasicUtil',
         libraryTarget: 'umd',
         globalObject: 'this'
