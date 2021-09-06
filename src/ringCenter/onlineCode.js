@@ -2,26 +2,26 @@
  * 针对数组排序问题解答
  * @type {*[]}
  */
-let ascSort = {
+const ascSort = {
   // 测试数据
   extensions: [
-    {firstName: 'a', lastName: 'pn', ext: 33, extType: 'DigitalUser'},
-    {firstName: 'b', lastName: 'pn', ext: 32, extType: 'DigitalUser'},
-    {firstName: 'a', lastName: 'pn', ext: 50, extType: 'AO'},
-    {firstName: 'a', lastName: 'ab', ext: '123', extType: 'AO'},
-    {firstName: 'b', lastName: 'pn', ext: 40, extType: 'Dept'},
-    {firstName: 'b', lastName: '', ext: '34', extType: 'AO'},
-    {firstName: 'b', lastName: 'nb', ext: '', extType: 'VirtualUser'},
-    {firstName: 'en', lastName: 'ww', ext: 32, extType: 'FaxUser'}
+    { firstName: 'a', lastName: 'pn', ext: 33, extType: 'DigitalUser' },
+    { firstName: 'b', lastName: 'pn', ext: 32, extType: 'DigitalUser' },
+    { firstName: 'a', lastName: 'pn', ext: 50, extType: 'AO' },
+    { firstName: 'a', lastName: 'ab', ext: '123', extType: 'AO' },
+    { firstName: 'b', lastName: 'pn', ext: 40, extType: 'Dept' },
+    { firstName: 'b', lastName: '', ext: '34', extType: 'AO' },
+    { firstName: 'b', lastName: 'nb', ext: '', extType: 'VirtualUser' },
+    { firstName: 'en', lastName: 'ww', ext: 32, extType: 'FaxUser' }
   ],
   // extType的排序数据
   extTypeSort: ['Dept', 'AO', 'FaxUser', 'VirtualUser', 'DigitalUser'],
-  sortProp:['firstName', 'lastName', 'ext'],
+  sortProp: ['firstName', 'lastName', 'ext'],
   // 排序方法、只支持升序
   ascSort (item1, item2, propArray) {
-    let compareArray = []
+    const compareArray = []
     for (let i = 0; i < propArray.length; i++) {
-      let prop = propArray[i]
+      const prop = propArray[i]
       if (item1[prop] > item2[prop]) {
         compareArray.push(1)
         break
@@ -57,7 +57,7 @@ let ascSort = {
    */
   sortExtensionsByExtType () {
     let array = []
-    let map = {}
+    const map = {}
     // 转化成map
     this.extensions.forEach(item => {
       map[item.extType] = map[item.extType] || []
@@ -78,7 +78,7 @@ let ascSort = {
    * @returns {Array}
    */
   sortExtensionsByExtType1 () {
-    let array = []
+    const array = []
     this.extTypeSort.forEach(extType => {
       this.extensions.forEach(item => {
         if (item.extType === extType) {
@@ -90,31 +90,31 @@ let ascSort = {
   }
 }
 
-let sumQuarter = {
+const sumQuarter = {
   saleItems: [
-    {month: 1, date: 1, transationId: '1', salePrice: 100.22},
-    {month: 1, date: 2, transationId: '2', salePrice: 102.01},
-    {month: 5, date: 3, transationId: '3', salePrice: 1020.99},
-    {month: 3, date: 1, transationId: '4', salePrice: 89.22},
-    {month: 12, date: 1, transationId: '5', salePrice: 78.45},
-    {month: 9, date: 2, transationId: '6', salePrice: 343.22},
-    {month: 9, date: 2, transationId: '7', salePrice: 23.01},
-    {month: 10, date: 3, transationId: '8', salePrice: 11.11}
+    { month: 1, date: 1, transationId: '1', salePrice: 100.22 },
+    { month: 1, date: 2, transationId: '2', salePrice: 102.01 },
+    { month: 5, date: 3, transationId: '3', salePrice: 1020.99 },
+    { month: 3, date: 1, transationId: '4', salePrice: 89.22 },
+    { month: 12, date: 1, transationId: '5', salePrice: 78.45 },
+    { month: 9, date: 2, transationId: '6', salePrice: 343.22 },
+    { month: 9, date: 2, transationId: '7', salePrice: 23.01 },
+    { month: 10, date: 3, transationId: '8', salePrice: 11.11 }
   ],
   // 计算季度销量
   sumByQuarter () {
-    let array = []
-    let quarterMap = {}
+    const array = []
+    const quarterMap = {}
     this.saleItems.forEach(item => {
-      let quarter = parseInt((item.month - 1) / 3) + 1
+      const quarter = parseInt((item.month - 1) / 3) + 1
       quarterMap[quarter] = quarterMap[quarter] || []
       quarterMap[quarter].push(item)
     })
 
-    for (let quarter in quarterMap) {
-      let value = quarterMap[quarter]
-      let transactionNums = value.length
-      let totalPrices = value.reduce((prev, cur) => {
+    for (const quarter in quarterMap) {
+      const value = quarterMap[quarter]
+      const transactionNums = value.length
+      const totalPrices = value.reduce((prev, cur) => {
         return math.accAdd(prev, cur.salePrice)
       }, 0)
 
@@ -142,9 +142,9 @@ let sumQuarter = {
 
 // 数组过滤
 function getUnUsedKeys (allKeys, usedKeys = []) {
-  let dataType = Object.prototype.toString.call(allKeys)
+  const dataType = Object.prototype.toString.call(allKeys)
   if (dataType === '[object Number]') {
-    let array = []
+    const array = []
     for (let i = 0; i <= allKeys; i++) {
       array.push(i)
     }
@@ -157,7 +157,7 @@ function getUnUsedKeys (allKeys, usedKeys = []) {
 }
 
 // 默认值
-let SequenceConfig = {
+const SequenceConfig = {
   idx: 0
 }
 
@@ -174,7 +174,7 @@ class Sequence {
   }
 
   next () {
-    let idx = this.increaseIdx()
+    const idx = this.increaseIdx()
     return idx
   }
 }
@@ -182,24 +182,24 @@ class Sequence {
 /**
  * 数字运算
  */
-let math = {
+const math = {
   // 除法
   accDiv (arg1, arg2, decimals) {
-    let [t1, t2] = this.getDitLength(arg1, arg2)
-    let num = Number((this.decimalToInt(arg1) / this.decimalToInt(arg2)) * Math.pow(10, t2 - t1))
+    const [t1, t2] = this.getDitLength(arg1, arg2)
+    const num = Number((this.decimalToInt(arg1) / this.decimalToInt(arg2)) * Math.pow(10, t2 - t1))
     return this.decimalsFormat(num, decimals)
   },
   // 加法
   accAdd (arg1, arg2) {
-    let [r1, r2] = this.getDitLength(arg1, arg2)
-    let m = Math.pow(10, Math.max(r1, r2))
+    const [r1, r2] = this.getDitLength(arg1, arg2)
+    const m = Math.pow(10, Math.max(r1, r2))
     return this.accDiv((this.accMul(arg1, m) + this.accMul(arg2, m)), m, 2)
   },
   // 乘法
   accMul (arg1, arg2, decimals) {
-    let [r1, r2] = this.getDitLength(arg1, arg2)
-    let m = r1 + r2
-    let num = this.decimalToInt(arg1) * this.decimalToInt(arg2) / Math.pow(10, m)
+    const [r1, r2] = this.getDitLength(arg1, arg2)
+    const m = r1 + r2
+    const num = this.decimalToInt(arg1) * this.decimalToInt(arg2) / Math.pow(10, m)
     return this.decimalsFormat(num, decimals)
   },
   // 获取小数点的位数
@@ -241,9 +241,9 @@ console.log('sumByQuarter:%o', sumQuarter.sumByQuarter())
 // 计算季度平均销量
 console.log('averageByQuarter:%o', sumQuarter.averageByQuarter())
 // 迭代器
-let sequence1 = new Sequence()
-let sequence3 = new Sequence()
-let sequence2 = new Sequence()
+const sequence1 = new Sequence()
+const sequence3 = new Sequence()
+const sequence2 = new Sequence()
 console.log(sequence1.next())
 console.log(sequence2.next())
 console.log(sequence3.next())
@@ -253,4 +253,4 @@ console.log(sequence3.next())
 console.log(sequence1.next())
 // getUnUsedKeys 按指定数组排序
 console.log('getUnUsedKeys:%o', getUnUsedKeys(100, [1, 2, 3, 4, 5, 2, 3, 4, 100]))
-console.log('getUnUsedKeys:%o', getUnUsedKeys([1,2,3,4,5], [1, 2]))
+console.log('getUnUsedKeys:%o', getUnUsedKeys([1, 2, 3, 4, 5], [1, 2]))
