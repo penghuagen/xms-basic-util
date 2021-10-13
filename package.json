@@ -6,14 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuildBrowser": "webpack --config build/webpack.config.browser.js",
-    "buildBrowser": "copy .\\dist\\xms-basic-util.js .\\examples\\browser\\",
+    "buildBrowser": "cp ./dist/xms-basic-util.js ./examples/browser/",
     "?postbuildBrowser": "node build/build-scp2-test.js",
-    "build:node": "webpack --config build/webpack.config.node.js && copy .\\dist\\xms-basic-util.js .\\examples\\node\\",
-    "build:amd": "webpack --config build/webpack.config.amd.js && copy .\\dist\\xms-basic-util.js .\\examples\\amd\\",
-    "build:es6": "webpack --config build/webpack.config.es6.js && copy .\\dist\\xms-basic-util.js .\\examples\\es6\\",
-    "prebuild": "webpack --config build/webpack.config.node.js && copy .\\dist\\xms-basic-util.js .\\examples\\node\\",
-    "build": "webpack --config build/webpack.config.es6.js && copy .\\dist\\xms-basic-util.js .\\examples\\es6\\",
-    "postbuild": "webpack --config build/webpack.config.browser.js && copy .\\dist\\xms-basic-util.js .\\examples\\browser\\"
+    "build:node": "webpack --config build/webpack.config.node.js && cp ./dist/xms-basic-util.js ./examples/node/",
+    "build:amd": "webpack --config build/webpack.config.amd.js && cp ./dist/xms-basic-util.js ./examples/amd/",
+    "build:es6": "webpack --config build/webpack.config.es6.js && cp ./dist/xms-basic-util.js ./examples/es6/",
+    "prebuild": "webpack --config build/webpack.config.node.js && cp ./dist/xms-basic-util.js ./examples/node/",
+    "build": "webpack --config build/webpack.config.es6.js && cp ./dist/xms-basic-util.js ./examples/es6/",
+    "postbuild": "webpack --config build/webpack.config.browser.js && cp ./dist/xms-basic-util.js ./examples/browser/"
   },
   "repository": {
     "type": "git",
