@@ -44,7 +44,7 @@ Date.prototype.format = function (fmt){
 /**
  * 日期转成指定格式，默认为SDF_DATE
  * @param timestamp 1614049156378
- * @returns {Date}
+ * @returns {string|void}
  */
 function dateFormat(date, format) {
     format = format || DATE_FORMAT.SDF_DATE;
@@ -105,7 +105,7 @@ function timestampToDateTime(timestamp) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {string|void}
+ * @returns {Date}
  */
 function timestampAddMonth(timestamp, month, format) {
     let date = timestampDate(timestamp);
@@ -182,7 +182,7 @@ function timeToDateTime(time) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {string|void}
+ * @returns {Date}
  */
 function timeAddMonth(time, month, format) {
     let date = timeDate(time);
@@ -194,7 +194,7 @@ function timeAddMonth(time, month, format) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {string|void}
+ * @returns {Date}
  */
 function timeAddDay(time, day, format) {
     let date = timeDate(time);
@@ -206,7 +206,7 @@ function timeAddDay(time, day, format) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {string|void}
+ * @returns {Date}
  */
 function dateAddMonth(date, month, format) {
     if (month) {
@@ -220,7 +220,7 @@ function dateAddMonth(date, month, format) {
  * @param timestamp
  * @param day
  * @param format
- * @returns {string|void}
+ * @returns {Date}
  */
 function dateAddDay(date, day, format) {
     if (day) {
