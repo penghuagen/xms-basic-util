@@ -248,13 +248,10 @@ export default {
     timeAddDay
 }
 
-/**
- * 测试
- */
-var now = new Date();
-console.log(dateFormat())
-console.log(dateFormat(new Date()))
-console.log(dateFormat(new Date(), DATE_FORMAT.SDF_HOUR_TIME))
+// var now = new Date();
+// console.log(dateFormat())
+// console.log(dateFormat(new Date()))
+// console.log(dateFormat(new Date(), DATE_FORMAT.SDF_HOUR_TIME))
 // console.log(timeDate())
 // console.log(timeDate(20210106101605570))
 // console.log(timeFormat(20210106101605570))
