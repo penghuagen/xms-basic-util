@@ -22,12 +22,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: [
-                    resolve('src'), resolve("dist"), resolve("examples")
+                    // resolve('src'), resolve("dist")
                 ],
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['env']
                     }
                 }
             }
