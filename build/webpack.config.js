@@ -22,7 +22,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: [
-                    resolve('src')
+                    resolve('src'), resolve("dist"), resolve("examples")
                 ],
                 use: {
                     loader: 'babel-loader',
