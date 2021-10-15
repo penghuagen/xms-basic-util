@@ -60,11 +60,11 @@ dateFormat.dateAddMonth(20210106101605570, -3, dateFormat.DATE_FORMAT.SDF_DATE_S
 
 示例:
 ```
-dateFormat.dateAddDay() //time没有传默认当天，也没有做天数增减处理 2021-04-06
-dateFormat.dateAddDay(1614049156378) //指定时间字符串 2021-01-06
-dateFormat.dateAddDay(1614049156378, 3) //指定时间戳并且day为正数 2021-01-09
-dateFormat.dateAddDay(1614049156378, -3) //指定时间戳并且day为负数 2021-01-03
-dateFormat.dateAddDay(1614049156378, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2021-01-03 10:16:05
+dateFormat.dateAddDay(new Date()) //time没有传默认当天，也没有做天数增减处理 2021-04-06
+dateFormat.dateAddDay(new Date(1614049156378)) //指定时间字符串 2021-01-06
+dateFormat.dateAddDay(new Date(1614049156378), 3) //指定时间戳并且day为正数 2021-01-09
+dateFormat.dateAddDay(new Date(1614049156378), -3) //指定时间戳并且day为负数 2021-01-03
+dateFormat.dateAddDay(new Date(1614049156378), -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2021-01-03 10:16:05
 ```
 
 #### 时间戳转换成指定的日期格式
@@ -245,7 +245,7 @@ dateFormat.timeAddMonth(20210106101605570, -3, dateFormat.DATE_FORMAT.SDF_DATE_S
 ```
 - timeAddDay(time, day, format)
 
-通过时间戳转换成指定格式,支持天数加减;
+通过时间字符串转换成指定格式,支持天数加减;
 
 | 参数              | 描述                      |
 | ----------------- | -------------------------| 
@@ -256,8 +256,8 @@ dateFormat.timeAddMonth(20210106101605570, -3, dateFormat.DATE_FORMAT.SDF_DATE_S
 示例:
 ```
 dateFormat.timeAddDay() //time没有传默认当天，也没有做天数增减处理 2021-04-06
-dateFormat.timeAddDay(1614049156378) //指定时间字符串 2021-01-06
-dateFormat.timeAddDay(1614049156378, 3) //指定时间戳并且day为正数 2021-01-09
-dateFormat.timeAddDay(1614049156378, -3) //指定时间戳并且day为负数 2021-01-03
-dateFormat.timeAddDay(1614049156378, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2021-01-03 10:16:05
+dateFormat.timeAddDay(20210106101605570) //指定时间字符串 2021-01-06
+dateFormat.timeAddDay(20210106101605570, 3) //指定时间戳并且day为正数 2021-01-09
+dateFormat.timeAddDay(20210106101605570, -3) //指定时间戳并且day为负数 2021-01-03
+dateFormat.timeAddDay(20210106101605570, -3, dateFormat.DATE_FORMAT.SDF_DATE_SECOND) //计算后并指定返回的格式 2021-01-03 10:16:05
 ```

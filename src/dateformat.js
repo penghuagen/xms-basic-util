@@ -194,7 +194,7 @@ function timeAddMonth(time, month, format) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {Date}
+ * @returns {string|void}
  */
 function timeAddDay(time, day, format) {
     let date = timeDate(time);
@@ -206,7 +206,7 @@ function timeAddDay(time, day, format) {
  * @param timestamp
  * @param month
  * @param format
- * @returns {Date}
+ * @returns {string|void}
  */
 function dateAddMonth(date, month, format) {
     if (month) {
@@ -220,7 +220,7 @@ function dateAddMonth(date, month, format) {
  * @param timestamp
  * @param day
  * @param format
- * @returns {Date}
+ * @returns {string|void}
  */
 function dateAddDay(date, day, format) {
     if (day) {
