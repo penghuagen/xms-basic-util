@@ -3,9 +3,7 @@
   "env": {
     "browser": true
   },
-  "extends": [
-    "plugin:vue-libs/recommended"
-  ],
+  "extends": [],
   "globals": {
     "bridge": true,
     "chrome": true,
